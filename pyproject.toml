@@ -21,6 +21,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 markers = [
     "gym: palestra dei difetti completa su transizioni reali (lenta); si lancia solo con -m gym",
     "data(*paths): richiede dati di progetto fuori dal sorgente (run congelate, schede, benchmark); saltato se mancano",
