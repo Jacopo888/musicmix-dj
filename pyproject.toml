@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "musicmix-research"
+version = "0.1.0"
+description = "Modular offline audio transition research baseline"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+audio = ["numpy>=1.24"]
+test = ["pytest>=8"]
+
+[project.scripts]
+musicmix = "musicmix.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "gym: palestra dei difetti completa su transizioni reali (lenta); si lancia solo con -m gym",
+    "data(*paths): richiede dati di progetto fuori dal sorgente (run congelate, schede, benchmark); saltato se mancano",
+]

@@ -1,0 +1,59 @@
+{
+  "schema": "musicmix.science_library.section_sources/v1",
+  "section": "07_dati_benchmark",
+  "collection_date": "2026-10-20",
+  "sources": [
+    {
+      "source_id": "mdjcue_archive",
+      "section": "07_dati_benchmark",
+      "title": "M-DJCUE annotated cue-point repository",
+      "authors": "Zehren; Alunno; Bientinesi",
+      "year": 2019,
+      "date_collected": "2026-10-20",
+      "url": "https://github.com/MZehren/M-DJCUE",
+      "doi": null,
+      "license": "repository GPL-3.0 for code/artifacts; audio recordings are copyrighted and absent",
+      "access": "official GitHub tree archive plus locally parsed JAMS annotations",
+      "read_depth": "README/LICENSE full; all 134 JAMS parsed",
+      "page_or_section_anchors": "README annotation guidelines 1-6; JAMS namespace cue_point; local counts in 07_dati_benchmark/RIASSUNTO.md",
+      "strongest_evidence": "Complete official tree archive: 134 `.jams` files, 402 annotator records, 1.849 raw events (1.037 IN/812 OUT), 590 positive durations. Merging ±0,5 s gives 1.082 clusters with agreement sizes 1:547, 2:305, 3:230.",
+      "transfer_limit": "EDM-only; IN restricted to intro and OUT not before core by annotation design; agreement/timing labels are useful, not semantic closure rap.",
+      "note": "Revision 7fd692c has all 134 annotation files; the prior 634121-byte ZIP remains archived as mdjcue_partial_archive and is explicitly incomplete."
+    },
+    {
+      "source_id": "mdjcue_partial_archive",
+      "section": "07_dati_benchmark",
+      "title": "M-DJCUE earlier partial archive (preserved failed attempt)",
+      "authors": "Zehren; Alunno; Bientinesi",
+      "year": 2019,
+      "date_collected": "2026-10-20",
+      "url": "https://github.com/MZehren/M-DJCUE",
+      "doi": null,
+      "license": "repository GPL-3.0 for code/artifacts; audio recordings are copyrighted and absent",
+      "access": "local partial archive retained for provenance audit",
+      "read_depth": "README/LICENSE and 133 recoverable JAMS; archive integrity failure recorded",
+      "page_or_section_anchors": "old ZIP header and tar warning; superseded by official complete tree archive",
+      "strongest_evidence": "The old 634121-byte ZIP has no EOCD and recovers only 133 JAMS; it must not be used as the accepted benchmark record.",
+      "transfer_limit": "No benchmark claims from this partial file; use complete revision 7fd692c instead.",
+      "note": "Preserved to show the failed retrieval, with sha256 80d28e14460128c0ae8388a737572661cad1dc06f474ebde305fef5b1fab0546."
+    },
+    {
+      "source_id": "raveform_card",
+      "section": "07_dati_benchmark",
+      "title": "Raveform official dataset card / license note",
+      "authors": "Raveform maintainers",
+      "year": 2026,
+      "date_collected": "2026-10-20",
+      "url": "https://mir-aidj.github.io/raveform/",
+      "doi": null,
+      "license": "CC BY 4.0 stated in local card front matter; verify individual data files",
+      "access": "local 30-byte card fragment; full dataset not downloaded",
+      "read_depth": "metadata only",
+      "page_or_section_anchors": "local README front matter; full paper in 04_modelli_preaddestrati",
+      "strongest_evidence": "La card locale conferma il campo di licenza, mentre conteggi e limiti sono presi dal paper Raveform archiviato.",
+      "transfer_limit": "Non usare la card da sola per conteggi o label.",
+      "note": ""
+    }
+  ],
+  "public_export_note": "metadata only: full texts and archived copies are not redistributed"
+}

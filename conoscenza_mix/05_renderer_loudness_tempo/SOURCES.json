@@ -1,0 +1,42 @@
+{
+  "schema": "musicmix.science_library.section_sources/v1",
+  "section": "05_renderer_loudness_tempo",
+  "collection_date": "2026-10-20",
+  "sources": [
+    {
+      "source_id": "daito_manabe2026",
+      "section": "05_renderer_loudness_tempo",
+      "title": "Interpretable diagnostics for DJ-mix quality (Daito Manabe)",
+      "authors": "Daito Manabe et al. (as recorded in local research report)",
+      "year": 2026,
+      "date_collected": "2026-10-20",
+      "url": "local research copy; canonical URL in ricerca/v9/cue_point_models/sources.json",
+      "doi": null,
+      "license": "preprint/practitioner copy; redistribution rights not audited",
+      "access": "local PDF (16 pages; pypdf-validated)",
+      "read_depth": "full text archived/extracted; sections read: deck A/deck B/master component diagnostics",
+      "page_or_section_anchors": "Deck A/deck B/master component diagnostics; local report § cue-point models",
+      "strongest_evidence": "Propone di separare loudness/headroom, continuità spettrale, smoothness del gain e stereo; non ridurre la qualità a uno scalare unico.",
+      "transfer_limit": "Framework diagnostico, non validazione percettiva del pool; componenti tecniche non equivalgono a chiusura semantica.",
+      "note": ""
+    },
+    {
+      "source_id": "mosaikbox2024",
+      "section": "05_renderer_loudness_tempo",
+      "title": "MosaikBox: Music mixing with stem modification",
+      "authors": "Sowula; Knees",
+      "year": 2024,
+      "date_collected": "2026-10-20",
+      "url": "local research copy; canonical URL in ricerca/v9/cue_point_models/sources.json",
+      "doi": null,
+      "license": "conference paper; local research copy",
+      "access": "local PDF (source copy)",
+      "read_depth": "full text archived/extracted; sections read: stem modification, beat-grid/time alignment, subjective evaluation",
+      "page_or_section_anchors": "stem modification, beat-grid/time alignment, subjective quality correlation reported in source report",
+      "strongest_evidence": "La modifica degli stem e l'allineamento del beat possono aiutare il mixing, ma la qualità resta soggettiva e dipendente dalla coppia.",
+      "transfer_limit": "Non è un benchmark per frase rap o suspense risolta; non sostituisce controlli separati del renderer.",
+      "note": ""
+    }
+  ],
+  "public_export_note": "metadata only: full texts and archived copies are not redistributed"
+}

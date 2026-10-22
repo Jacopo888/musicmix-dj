@@ -1,0 +1,42 @@
+{
+  "schema": "musicmix.science_library.section_sources/v1",
+  "section": "06_valutazione_autofeedback",
+  "collection_date": "2026-10-20",
+  "sources": [
+    {
+      "source_id": "tensemusic2024",
+      "section": "06_valutazione_autofeedback",
+      "title": "TenseMusic: An automatic prediction model for musical tension",
+      "authors": "Barchet; Rimmele; Pelofi",
+      "year": 2024,
+      "date_collected": "2026-10-20",
+      "url": "https://doi.org/10.1371/journal.pone.0296385",
+      "doi": "10.1371/journal.pone.0296385",
+      "license": "PLOS open access (publisher record)",
+      "access": "local PLOS PDF (18 pages; pypdf-validated)",
+      "read_depth": "full text archived/extracted; sections read: pp. 1-5 model/features and pp. 12-16 results, limitations, conclusion",
+      "page_or_section_anchors": "Automatic feature extraction; slope estimation; 38 classical excerpts; public Python/OSF artifacts",
+      "strongest_evidence": "Un modello audio-input usa sei feature, trend e memoria per stimare tensione su estratti classici; una curva in calo non certifica una risoluzione di mix.",
+      "transfer_limit": "Classica e singolo estratto; nessun cross-song, nessuna voce rap, nessun giudizio DJ.",
+      "note": ""
+    },
+    {
+      "source_id": "songeval2025",
+      "section": "06_valutazione_autofeedback",
+      "title": "SongEval: A Benchmark for Evaluating Generated Music",
+      "authors": "authors as published in arXiv record",
+      "year": 2025,
+      "date_collected": "2026-10-20",
+      "url": "https://arxiv.org/abs/2505.10793",
+      "doi": null,
+      "license": "arXiv open access; dataset/model terms separate",
+      "access": "local PDF (13 pages; pypdf-validated) and extracted root text",
+      "read_depth": "full text archived/extracted; sections read: dataset, five expert-rated dimensions, limitations",
+      "page_or_section_anchors": "Dataset and five expert-rated dimensions; local V10 diagnostic run; limitations on whole-song vs transition quality",
+      "strongest_evidence": "Benchmark di canzoni generate con dimensioni estetiche separate, utile come rubrica di coerenza/fraseggio ma non come filtro automatico di un singolo raccordo.",
+      "transfer_limit": "Whole-song ratings ≠ A→B transition labels; evitare leakage e non addestrare sulle valutazioni V8/V10.",
+      "note": ""
+    }
+  ],
+  "public_export_note": "metadata only: full texts and archived copies are not redistributed"
+}

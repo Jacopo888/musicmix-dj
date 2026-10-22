@@ -1,0 +1,20 @@
+# MusicMix - light test environment (CI and quick local checks), Python 3.11, CPU only.
+# Same pins as requirements-core.txt for the packages the synthetic test suite imports;
+# the heavy model runtimes (Demucs, faster-whisper, spaCy, critics) are not needed:
+# their tests skip or run against stubs.
+#   pip install -r env/requirements-ci.txt && pip install --no-deps -e .
+#   pytest -q -m "not data and not gym"
+--extra-index-url https://download.pytorch.org/whl/cpu
+numpy==2.4.6
+scipy==1.17.1
+soundfile==0.14.0
+soxr==1.1.0
+librosa==0.10.1
+numba==0.68.0
+llvmlite==0.50.0
+scikit-learn==1.9.1
+pyloudnorm==0.2.0
+matplotlib==3.11.1
+setuptools==79.0.1          # keep <81: librosa 0.10.1 imports pkg_resources
+torch==2.14.0+cpu
+pytest==9.1.1

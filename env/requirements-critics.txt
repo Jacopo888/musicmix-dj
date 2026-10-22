@@ -1,0 +1,34 @@
+# MusicMix - optional heavy critics for Linux (CPU only).
+#
+# Section A installs ON TOP of the core venv (/opt/musicmix/venv):
+#   uv pip install --python /opt/musicmix/venv/bin/python -r env/requirements-core.txt \
+#       -r env/requirements-critics.txt --index-strategy unsafe-best-match
+#
+# SongEval/MuQ is NOT installable here: muq 0.1.0 imports transformers.deepspeed
+# and was run on Windows with transformers 4.42.3 + numpy 1.26.4 (paths
+# prepended by tools/run_pretrained_music_critic.py:31-40). It lives with CUE-DETR
+# in env/requirements-legacy-np1.txt (separate venv).
+
+# --- A. Audiobox Aesthetics (.cache/critic_runtime, used by src/musicmix/aesthetic_critic.py)
+# Windows ran it with structure_runtime + asr_runtime + global torch 2.14.0+cpu,
+# i.e. the same numpy 2.4.6 / huggingface_hub 2.2.0 stack as the core venv.
+--extra-index-url https://download.pytorch.org/whl/cpu
+audiobox_aesthetics==0.0.4
+rich==15.0.0
+submitit==1.5.3
+safetensors==0.8.0
+# weights: .cache/models/audiobox_aesthetics (HF facebook/audiobox-aesthetics @ 9b1dd8e5df9af7216e836a98974fe3b82c56ded6)
+
+# --- B. TenseMusic / basic-pitch (research only, NOT wired into src/ or tools/)
+# runs/result_swarm_v12/agents/official_tension/runtime used tensorflow-cpu 2.15.1,
+# numpy 1.26.4, scipy 1.11.4, protobuf 4.25.9, keras 2.15.0 -> incompatible with
+# both the core venv (numpy 2.x, protobuf 7) and the legacy venv (scipy 1.17).
+# If ever needed, build a THIRD venv (Python 3.11) with exactly:
+#   basic-pitch==0.4.0 tensorflow-cpu==2.15.1 numpy==1.26.4 scipy==1.11.4
+#   librosa==0.10.2.post1 resampy==0.4.3 mir_eval==0.8.2 pretty_midi==0.2.10
+#   mosqito==1.1.0 music21==9.1.0 onnxruntime==1.19.2 pandas==2.1.4
+#   matplotlib==3.8.4 scikit-learn==1.9.1 soundfile==0.12.1 protobuf==4.25.9
+#
+# --- C. All-In-One (allin1) - optional, never completed an inference
+# Ran only under WSL (torch 2.9.1, NATTEN 0.14.6 built from .cache/natten-0.14.6-src,
+# madmom 0.16.1 patched copy in .cache/madmom_compat). Not pinned here; see RUNTIME_MAP.md.

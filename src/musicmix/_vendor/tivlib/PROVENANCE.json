@@ -1,0 +1,14 @@
+{
+ "name": "TIV.lib",
+ "version": "0.1dev (TIVlib/version.py)",
+ "upstream": "https://github.com/aframires/TIVlib",
+ "ref": "master (raw.githubusercontent.com, 2026-10-21; commit id not retrievable from this machine: GitHub API scoped to the session repositories)",
+ "files": {
+  "tiv.py": {"upstream_path": "TIVlib/tiv.py", "sha256": "c2e5d3c674d7322e69c40e86311d927db0f70f994bb804ec98928abef96ccb46", "modified": false},
+  "LICENSE": {"upstream_path": "LICENSE", "sha256": "db648e779f5509f58950332706fa8cb5ec4c99c35d8071c59db677fdc31cf5dd", "spdx": "MIT"}
+ },
+ "paper": "Ramires, Bernardes, Davies, Serra (2020). TIV.lib: an open-source library for the tonal description of musical audio. DAFx-20, Vienna. arXiv:2008.11529 (pdf sha256 752862c9419d9ebf6824b0c4d562cb53ff45dd4d5cc724b69cfa22c258e67e07)",
+ "method_papers": ["Bernardes, Cocharro, Caetano, Guedes, Davies (2016). A multi-level tonal interval space for modelling pitch relatedness and musical consonance. JNMR 45(4):281-294, doi:10.1080/09298215.2016.1182192 (small-scale compatibility used here)",
+                   "Bernardes, Davies, Guedes (2018). A hierarchical harmonic mixing method. Music Technology with Swing (CMMR 2017), Springer, pp. 151-170"],
+ "used_by": "src/musicmix/dj_mashup.py (tiv_compatibility: vectorised copy of TIV.from_pcp + TIV.small_scale_compatibility, checked against this file in tests/test_dj_mashup.py)"
+}

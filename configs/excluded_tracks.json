@@ -1,0 +1,8 @@
+{
+  "schema_version": "musicmix.excluded_tracks.1",
+  "note": "Brani esclusi da selezione, set e gallerie (anche clip di verifica come runs/books_integration_check). Letto da musicmix.track_filter.",
+  "tracks": {
+    "times_real_scelta_j1393805": {"reason": "esclusione esplicita dell'utente (21/10/2026)", "date": "2026-10-21"},
+    "porrazzo_glide_beat_j1398420": {"reason": "esclusione esplicita dell'utente (21/10/2026)", "date": "2026-10-21"}
+  }
+}

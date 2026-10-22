@@ -1,0 +1,59 @@
+{
+  "schema": "musicmix.science_library.section_sources/v1",
+  "section": "02_fraseggio_rap_voce",
+  "collection_date": "2026-10-20",
+  "sources": [
+    {
+      "source_id": "mcflow2016",
+      "section": "02_fraseggio_rap_voce",
+      "title": "MCFlow: A Digital Corpus of Rap Flow",
+      "authors": "Nathaniel Condit-Schultz",
+      "year": 2016,
+      "date_collected": "2026-10-20",
+      "url": "https://rave.ohiolink.edu/etdc/view?acc_num=osu1461250949",
+      "doi": null,
+      "license": "OhioLINK ETD / academic repository; dataset access and redistribution must be checked separately",
+      "access": "local dissertation PDF (197 pages)",
+      "read_depth": "full text archived/extracted; sections read: Ch. 3.2.2, 3.2.4, 3.3 and 5.1.4",
+      "page_or_section_anchors": "Ch. 3.2.2 pp. 59-63; Ch. 3.2.4 pp. 83-87; Ch. 3.3 pp. 87-89; Ch. 5.1.4 pp. 152-155; abstract",
+      "strongest_evidence": "Corpus simbolico di flow: la frase è prosodica e ritmica, spesso attorno a una misura ma con pickup, sottounità di due beat e phrasing in 3/4 o 5/4; il corpus della dissertazione dichiara 124 brani, 47 artisti, 6.107 misure e 54.248 parole.",
+      "transfer_limit": "È rap, quindi utile per la forma vocale; non contiene audio allineato né giudizi di transizione DJ.",
+      "note": ""
+    },
+    {
+      "source_id": "adams2020",
+      "section": "02_fraseggio_rap_voce",
+      "title": "Harmonic, Syntactic, and Motivic Parameters of Phrase in Hip-Hop",
+      "authors": "Kyle Adams",
+      "year": 2020,
+      "date_collected": "2026-10-20",
+      "url": "https://mtosmt.org/issues/mto.20.26.2/mto.20.26.2.adams.html",
+      "doi": null,
+      "license": "Society for Music Theory / MTO open access",
+      "access": "local PDF plus open HTML landing page",
+      "read_depth": "full text archived/extracted; sections read: §§0.1-1.16, 2.1-2.24, 3.1-3.4, 4-6; PDF font artifacts remain",
+      "page_or_section_anchors": "§§0.1-1.16 (norms/rhyme), §§2.1-2.24 (harmony), §§3.1-3.4 (syntax), §§4-5 (motive/interactions), §6",
+      "strongest_evidence": "La frase hip-hop non è garantita dal default di due battute: armonia del beat, sintassi e motivo ritmico/melodico possono concordare o competere; la sintassi può prevalere sulla rima.",
+      "transfer_limit": "Analisi musicologica di esempi, non esperimento percettivo né corpus audio; usarlo per progettare cue multipli, non per fissare soglie.",
+      "note": ""
+    },
+    {
+      "source_id": "duinker2020",
+      "section": "02_fraseggio_rap_voce",
+      "title": "Diversification and Post-Regionalism in North American Hip-Hop Flow",
+      "authors": "Benjamin Duinker",
+      "year": 2020,
+      "date_collected": "2026-10-20",
+      "url": "https://mcgill.scholaris.ca/items/2d39727c-4429-4dfc-b273-c9294ab471e1",
+      "doi": null,
+      "license": "McGill institutional repository; open access thesis",
+      "access": "local dissertation PDF (306 pages)",
+      "read_depth": "full text archived/extracted; sections read: Ch. 6.2-6.4 (SR1-SR5, PR1-PR2, alignment/non-alignment)",
+      "page_or_section_anchors": "Ch. 6.2 pp. 169-175 (SR1-SR5); Ch. 6.3 pp. 176-179 (PR1-PR2); Ch. 6.4 pp. 194-201 (alignment/non-alignment)",
+      "strongest_evidence": "Propone cinque regole di segmentazione che possono confliggere (rima, sintassi, respiro, ritmo), distingue frasi allineate/nested/non-aligned e avverte che la dissonanza metrica non richiede sempre risoluzione.",
+      "transfer_limit": "Regole analitiche non percettivamente validate; trasferimento a trap e mix richiede audio annotato.",
+      "note": ""
+    }
+  ],
+  "public_export_note": "metadata only: full texts and archived copies are not redistributed"
+}

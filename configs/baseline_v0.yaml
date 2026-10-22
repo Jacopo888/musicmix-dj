@@ -1,0 +1,41 @@
+# Parametri ESEMPLIFICATIVI, non validati sperimentalmente.
+# Questi pesi rispecchiano anche i valori iniziali del prototipo Python.
+schema_version: '0.1.0'
+canonical_audio:
+  sample_rate: 48000
+  channels: 2
+  storage_codec: wav_pcm_24
+candidate_generation:
+  search_entire_song: true
+  segment_lengths_beats: [2, 4, 8, 16]
+  word_context_seconds: [1.0, 1.0]
+  max_candidates_per_generator: 100
+  preserve_top_k_per_mode: 10
+constraints:
+  max_relative_tempo_change: 0.08   # ipotesi, da validare
+  max_pitch_shift_semitones: 2       # ipotesi, da validare
+  require_nonzero_context: true
+score:
+  weights:
+    horizontal: 0.40
+    vertical: 0.10
+    continuity: 0.35
+    creative: 0.15
+  penalties:
+    transform: 0.12
+    artifact: 0.12
+  min_feature_confidence: 0.50
+  require_at_least_one_valid_benefit: true
+  diversify:
+    max_per_identical_cue_cluster: 1
+    max_per_modality_in_top10: 5
+preview:
+  renderer: neutral_v0
+  context_pre_seconds: 10.0
+  context_post_seconds: 10.0
+  fade_seconds: 0.50
+  normalize_loudness: true
+experiment:
+  seed: 271828
+  systems: [random_valid, spotify_like, automashupper_like, proposed]
+  preregister_primary_endpoint: listener_pairwise_preference

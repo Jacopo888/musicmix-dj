@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv*/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+
+# Local data, runs and caches (never commit)
+.cache/
+/runs/
+/local_audio/
+/deliverables/
+/track_cards/
+/giudizi*/
+/feedback_snapshot/
+/models/
+/libri/
+*.log
+
+# Audio, stems and renders
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.aac
+*.ogg
+*.opus
+*.aif
+*.aiff
+*.wma
+
+# Model weights and arrays
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.th
+*.bin
+*.h5
+*.npz
+*.npy
+*.pkl
+
+# Protected texts and archives
+*.pdf
+*.epub
+*.zip
+*.tar.gz
+*.tgz
+
+# Editors / OS / secrets
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*

@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "candidate_id": "synthetic_word_a_to_b_001",
+  "track_a": {"track_id": "sintetica_A", "duration_samples": 8640000},
+  "track_b": {"track_id": "sintetica_B", "duration_samples": 9600000},
+  "transition": {
+    "cue_out_sample": 3456000,
+    "cue_in_sample": 5904000,
+    "mode": "word",
+    "proposed_alignment": {
+      "tempo_ratio": 1.02,
+      "pitch_shift_semitones": 0.0,
+      "cut_anchor": "word_boundary"
+    }
+  },
+  "features": {
+    "horizontal": {"value": 0.76, "confidence": 0.88, "source": "M07_harmony"},
+    "vertical": {"value": null, "confidence": null, "source": "M07_not_applicable", "warning": "no_overlap"},
+    "continuity": {"value": 0.91, "confidence": 0.79, "source": "M07_lyrics_f0"},
+    "creative": {"value": 0.60, "confidence": 0.55, "source": "M07_novelty_proxy"}
+  },
+  "penalties": {
+    "transform": {"value": 0.18, "confidence": 0.92, "source": "M07_transform_cost"},
+    "artifact": {"value": 0.06, "confidence": 0.78, "source": "M01_source_quality"}
+  },
+  "constraints": {"passed": true, "reasons": []},
+  "provenance": {
+    "run_id": "demo_senza_audio",
+    "generator_version": "word_candidate_v0",
+    "feature_extractor_version": "synthetic_fixture_v0"
+  }
+}

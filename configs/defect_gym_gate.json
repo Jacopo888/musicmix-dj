@@ -1,0 +1,135 @@
+{
+ "schema": "musicmix.defect_gym_gate.1",
+ "declared": "2026-10-21, prima della run completa della palestra v1 (dopo una sola prova di debug su un riferimento naturale: nat_knife_talk, poi escluso dai riferimenti per la regola delle frasi interne)",
+ "status": "[H] soglie nostre; non stimate su voti dell'utente. Rilevamento = rifiuto nuovo della pipeline (QA fail o veto del critico del runner v3) rispetto al riferimento; 'unavailable', 'warned' ed 'error' contano come non rilevati; 'masked' (controllo atteso già fail nel riferimento) escluso dal denominatore e dichiarato.",
+ "detection": [
+  {
+   "variant": "word_cut_a@straddle120",
+   "min_rate": 0.9,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "richiesta dell'orchestratore (parola mozzata); B&B cap. 11"
+  },
+  {
+   "variant": "word_cut_b@straddle120",
+   "min_rate": 0.9,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "parola mozzata anche in B (lamentela ricorrente nei giudizi del set v3: g01, g03)"
+  },
+  {
+   "variant": "phase@half_beat",
+   "min_rate": 0.9,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "richiesta dell'orchestratore; train wreck (Webber p. 244)"
+  },
+  {
+   "variant": "phase@quarter_beat",
+   "min_rate": 0.8,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "[H] sfasamento evidente"
+  },
+  {
+   "variant": "loud_jump@+6dB",
+   "min_rate": 0.9,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "Webber p. 244; tag 'volume_salta' nei giudizi"
+  },
+  {
+   "variant": "double_bass@2bars",
+   "min_rate": 0.9,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "B&B cap. 28"
+  },
+  {
+   "variant": "gap@1beat",
+   "min_rate": 0.8,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "[H] buco non dichiarato di un battito"
+  },
+  {
+   "variant": "pickup_removed@no_lead_in",
+   "min_rate": 0.8,
+   "min_n": 3,
+   "detector": "pipeline",
+   "why": "B&B cap. 10; INGRESSO_B"
+  },
+  {
+   "variant": "key_clash@+1st",
+   "min_rate": 0.8,
+   "min_n": 3,
+   "detector": "pipeline",
+   "why": "B&B cap. 15 (solo con sovrapposizione)"
+  },
+  {
+   "variant": "b_bar_late@1bar",
+   "min_rate": 0.8,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "fuori frase (B&B cap. 10; tag 'punto_frase_sbagliato' nei giudizi)"
+  }
+ ],
+ "false_alarms": [
+  {
+   "group": "natural",
+   "max_rate": 0.1,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "richiesta dell'orchestratore; continuazioni senza giunta"
+  },
+  {
+   "group": "user_vote",
+   "max_rate": 0.34,
+   "min_n": 5,
+   "detector": "pipeline",
+   "why": "[H] voto >= 6 non garantisce pulizia tecnica: al più 1 su 3 rifiutata"
+  }
+ ],
+ "report_only": [
+  "phase@30ms",
+  "loud_jump@+3dB",
+  "gap@half_beat",
+  "click@-20dBFS",
+  "click@-6dBFS",
+  "key_clash@-1st",
+  "b_bar_early@1bar",
+  "echo_offtempo@0.37beat",
+  "combinazioni",
+  "falsi allarmi natural_section / natural_blend / set_v3_*"
+ ],
+ "gym_profile": {
+  "note": "profilo usato dal test -m gym (tools/defect_gym.py run --profile gate): solo i difetti con soglia, nessuna combinazione",
+  "ref_prefixes": [
+   "nat_",
+   "uv_",
+   "li_"
+  ],
+  "max_refs_per_origin": {
+   "natural": 6,
+   "user_vote": 6,
+   "set_v3_lead_in": 6
+  }
+ },
+ "amendments": [
+  {
+   "date": "2026-10-21",
+   "what": "riferimenti set_v3_lead_in tenuti con il solo lead-in dichiarato (vedi nota v1)",
+   "thresholds_changed": false
+  },
+  {
+   "date": "2026-10-22",
+   "what": "v2: operatore double_bass non generato quando la banda < 200 Hz di A iniettata dopo il cue è più di 12 dB sotto quella di B nelle stesse battute (dose nulla: A senza basso dopo il cue; v1: 3 'mancate' con A 16-45 dB sotto B). Regola [H] in src/musicmix/defect_gym.py DOUBLE_BASS_MIN_DOSE_DB, dichiarata prima della run v2.",
+   "thresholds_changed": false
+  },
+  {
+   "date": "2026-10-22",
+   "what": "v2: falsi allarmi riportati anche per metà di sviluppo e di verifica (runs/defect_gym_v2/split.json, dichiarato prima delle correzioni di misura); il gate resta calcolato su tutti i riferimenti con le soglie del 21/10",
+   "thresholds_changed": false
+  }
+ ]
+}

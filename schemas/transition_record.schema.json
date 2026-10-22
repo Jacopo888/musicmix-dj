@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:musicmix:schemas:transition_record:0.1.0",
+  "title": "MusicMix TransitionCandidateRecord v0.1.0",
+  "description": "Contratto versionato per un singolo candidato A→B su feature precomputate; NON un file audio.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "candidate_id", "track_a", "track_b", "transition", "features", "penalties", "constraints", "provenance"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "track_a": {"$ref": "#/$defs/trackRef"},
+    "track_b": {"$ref": "#/$defs/trackRef"},
+    "transition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["cue_out_sample", "cue_in_sample", "mode"],
+      "properties": {
+        "cue_out_sample": {"type": "integer", "minimum": 0},
+        "cue_in_sample": {"type": "integer", "minimum": 0},
+        "mode": {"enum": ["structure", "harmony_rhythm", "word", "phoneme", "melody_riff", "hybrid"]},
+        "proposed_alignment": {"type": "object", "additionalProperties": false,
+          "properties": {
+            "tempo_ratio": {"type": "number", "exclusiveMinimum": 0},
+            "pitch_shift_semitones": {"type": "number", "minimum": -12, "maximum": 12},
+            "cut_anchor": {"type": "string"}
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "horizontal": {"$ref": "#/$defs/feature"},
+        "vertical": {"$ref": "#/$defs/feature"},
+        "continuity": {"$ref": "#/$defs/feature"},
+        "creative": {"$ref": "#/$defs/feature"}
+      }
+    },
+    "penalties": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "transform": {"$ref": "#/$defs/feature"},
+        "artifact": {"$ref": "#/$defs/feature"}
+      }
+    },
+    "constraints": {
+      "type": "object", "additionalProperties": false,
+      "required": ["passed", "reasons"],
+      "properties": {
+        "passed": {"type": "boolean"},
+        "reasons": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": true,
+      "required": ["run_id", "generator_version", "feature_extractor_version"],
+      "properties": {
+        "run_id": {"type": "string", "minLength": 1},
+        "generator_version": {"type": "string", "minLength": 1},
+        "feature_extractor_version": {"type": "string", "minLength": 1},
+        "audio_sha256_a": {"type": "string"},
+        "audio_sha256_b": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {
+    "trackRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["track_id", "duration_samples"],
+      "properties": {
+        "track_id": {"type": "string", "minLength": 1},
+        "duration_samples": {"type": "integer", "minimum": 1}
+      }
+    },
+    "feature": {
+      "type": "object", "additionalProperties": false,
+      "required": ["value", "confidence"],
+      "properties": {
+        "value": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "source": {"type": "string"},
+        "warning": {"type": "string"}
+      }
+    }
+  }
+}

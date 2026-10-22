@@ -1,0 +1,10 @@
+{
+  "schema_version": "musicmix.track_language_policy.1",
+  "note": "Lingue cantate ammesse nella selezione (utente, 21/10/2026: solo inglese e italiano). Un brano strumentale o senza voce rilevabile resta ammesso. min_probability e' una soglia [H]: sotto, la lingua e' 'incerta' e il brano resta ammesso (segnalato).",
+  "allowed_languages": ["en", "it"],
+  "min_probability": 0.5,
+  "language_indexes": [
+    "runs/asr_language_v1/bridge_catalog_languages.json",
+    "runs/asr_language_v1/cc_pool_languages.json"
+  ]
+}

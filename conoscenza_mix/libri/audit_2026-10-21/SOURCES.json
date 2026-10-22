@@ -1,0 +1,97 @@
+{
+  "schema": "musicmix.book_audit_sources.1",
+  "date": "2026-10-21",
+  "books": [
+    {
+      "book_id": "Brewster",
+      "title": "How to DJ right the art and science of playing records",
+      "authors": "Bill Brewster; Frank Broughton",
+      "year": 2003,
+      "publisher": "Grove Press",
+      "format": "epub",
+      "evidence_type": "pratica DJ [P]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Ohriner",
+      "title": "Flow The Rhythmic Voice in Rap Music",
+      "authors": "Mitchell Ohriner",
+      "year": 2019,
+      "publisher": "Oxford University Press",
+      "format": "pdf",
+      "evidence_type": "analisi/corpus/algoritmo autore [A/E nel dominio descritto]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Katz",
+      "title": "Groove Music The Art and Culture of the Hip-Hop DJ",
+      "authors": "Mark Katz",
+      "year": 2012,
+      "publisher": "Oxford University Press",
+      "format": "pdf",
+      "evidence_type": "storia/etnografia/pratica [A/P]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Webber",
+      "title": "DJ Skills The Essential Guide to Mixing and Scratching",
+      "authors": "Stephen Webber",
+      "year": 2008,
+      "publisher": "Focal Press",
+      "format": "pdf",
+      "evidence_type": "manuale/interviste [P]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Margulis",
+      "title": "On Repeat How Music Plays the Mind",
+      "authors": "Elizabeth Hellmuth Margulis",
+      "year": 2014,
+      "publisher": "Oxford University Press",
+      "format": "pdf",
+      "evidence_type": "sintesi psicologica/esperimenti citati/teoria [E/T]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Krims",
+      "title": "Rap music and the poetics of identity",
+      "authors": "Adam Krims",
+      "year": 2000,
+      "publisher": "Cambridge University Press",
+      "format": "pdf",
+      "evidence_type": "analisi musicologica/culturale [A/T]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Williams",
+      "title": "Rhymin and stealin musical borrowing in hip-hop",
+      "authors": "Justin A. Williams",
+      "year": 2013,
+      "publisher": "University of Michigan Press",
+      "format": "pdf",
+      "evidence_type": "analisi musicologica/ricezione [A]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Huron",
+      "title": "Sweet Anticipation Music and the Psychology of Expectation",
+      "authors": "David Huron",
+      "year": 2006,
+      "publisher": "MIT Press",
+      "format": "pdf",
+      "evidence_type": "teoria ITPRA/esperimenti citati/analisi [T/E/A]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    },
+    {
+      "book_id": "Butler",
+      "title": "Unlocking the Groove Rhythm, Meter, and Musical Design in Electronic Dance Music",
+      "authors": "Mark J. Butler",
+      "year": 2006,
+      "publisher": "Indiana University Press",
+      "format": "pdf",
+      "evidence_type": "analisi EDM/interviste/pratica [A/P]",
+      "locator_policy": "PDF: fisica1-based + stampata verificata quando citata; EPUB: capitolo/spine/href/offset, nessuna pagina inventata"
+    }
+  ],
+  "public_export_note": "metadata only: full texts and archived copies are not redistributed"
+}

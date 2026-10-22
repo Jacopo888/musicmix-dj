@@ -1,0 +1,60 @@
+# Quando cambiare canzone e come valutare automaticamente — V9
+
+19 ottobre 2026. Ricerca e specifica d'esperimento completate; nuovo selettore e nuovi critici **non ancora implementati o validati**.
+
+## Esito concreto dei giudizi
+
+I quattro confronti V8 sono stati importati dal JSON salvato, associati alla chiave privata e ai file effettivi. Nei due confronti del criterio expectation non c'è alcuna vittoria: un “nessuno” e una parità. Nei quattro confronti complessivi, quattro audio interrompono il movimento, quattro sono incerti e due tagliano una parola. Nessuno è annotato come continuazione o risoluzione. La preferenza relativa per A nella quarta prova non dimostra sufficienza assoluta.
+
+Tutti gli otto render avevano superato i controlli tecnici. L'audio B della terza prova ha il CE Audiobox più alto del gruppo ed è comunque rifiutato, con parola tagliata e interruzione del movimento. Qualità della registrazione e qualità della transizione sono compiti diversi. Questi pochi esempi identificano errori da coprire; non permettono di calibrare un nuovo peso o una probabilità di successo. Il V8 resta un insieme diagnostico escluso dalla taratura.
+
+[Tabella degli otto audio e diagnosi](../ricerca/v9/FEEDBACK_DIAGNOSIS.md) · [Audit con hash e corrispondenze](../runs/swarm_v9_research/feedback_audit.json). Lo storico contiene ora 31 geometrie giudicate e 33 includendo quelle già presentate.
+
+## La decisione che manca
+
+La scelta deve considerare congiuntamente **se lasciare A, quando, verso quale momento di B e con quale transizione**. Un beat compatibile o una pausa vocale non attestano che A abbia completato una frase o che B dia seguito all'aspettativa creata. Allargare il pool offre alternative utili, ma non fornisce da solo questa capacità.
+
+Il termine operativo è tensione/aspettativa musicale: sviluppo, preparazione e arrivo percepito. Una riduzione di energia può accompagnare una risoluzione oppure spezzare il discorso. Anche contrasto e sorpresa possono essere intenzionali. Non serve perciò una regola universale “crescente deve seguire crescente”, né un divieto del rap con andamento stabile.
+
+La letteratura distingue il livello della transizione da quello della selezione del brano e della sequenza complessiva. Il sistema attuale tratta bene alcuni vincoli locali, ma non rappresenta ancora questa decisione completa. È una limitazione osservata, non una causa sperimentalmente isolata di tutti i fallimenti. [Temporal Considerations, TIME 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.TIME.2025.20).
+
+## Cosa emerge dalle fonti
+
+**Pratica DJ.** I capitoli liberamente disponibili e le guide consultate descrivono fraseggio, preparazione dell'ingresso, arrivo/drop e tagli rapidi. Sono consigli dipendenti da genere e intento: 8/16/32 barre sono possibili strutture, non una griglia obbligatoria. Un taglio breve può funzionare nell'hip-hop; una dissolvenza lunga può peggiorare la sovrapposizione delle voci. Il capitolo completo di Digital DJ Tips è accessibile; per *How to DJ Right* abbiamo un estratto introduttivo, non il libro integrale. [Capitolo sulle transizioni](https://www.digitaldjtips.com/rock-the-dancefloor/five-basic-dj-transitions/), [drop mixing hip-hop](https://www.digitaldjtips.com/dropmix-like-a-pro-hip-hop-dj/), [estratto dell'editore](https://groveatlantic.com/book/how-to-dj-right/).
+
+**Cue e struttura.** CUE-DETR apprende opportunità su singoli brani: 4.710 tracce e 21.461 cue da collezioni DJ. È una baseline concreta per il “dove”, ma non giudica la coppia A→B né la risoluzione della suspense. Il dominio prevalente è musica a tempo costante in 4/4; il trasferimento al nostro rap/pop va misurato. Nel codice ufficiale, il raggio di `find_peaks` viene usato in indici mentre l'help parla di barre; i punteggi vengono normalizzati prima della soglia. Occorre verificare le unità e mantenere i valori grezzi: una soglia 0,9 non equivale a confidenza 90%. [Paper](https://arxiv.org/html/2407.06823v1), [implementazione](https://github.com/ETH-DISCO/cue-detr).
+
+**Dati professionali.** Raveform, pubblicato nel 2026, cambia il quadro rispetto alla scarsità descritta nei lavori precedenti: 4.902 mix, 56.873 brani unici, 73.505 istanze suonate e 53.780 transizioni disponibili; 1.423 brani hanno annotazioni esperte di struttura. I punti di mix derivano dall'allineamento e non sono tutti annotazioni manuali di qualità. Il corpus è prevalentemente elettronico e richiede controllo delle versioni audio, dell'allineamento e delle duplicazioni tra train e test. In questa fase sono stati verificati paper e schema; il corpus audio non è stato scaricato. [Articolo Raveform](https://reference-global.com/article/10.5334/tismir.288?tab=article), [documentazione dei dati](https://mir-aidj.github.io/raveform/).
+
+**Tensione e memoria.** TenseMusic fornisce un modello riproducibile con sei famiglie di descrittori e integrazione temporale. È un candidato per una traiettoria di tensione, non un rilevatore già validato di risoluzione tra canzoni: la valutazione riguarda estratti di musica classica occidentale. La letteratura sulla tensione mostra anche perché un frammento troppo corto può perdere la preparazione necessaria a percepire un arrivo. Dovremo mantenere contesti su più scale e distinguere descrittori acustici, aspettativa e interpretazione. [TenseMusic](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296385), [codice](https://github.com/vivienbarchet/TenseMusic), [modello di Farbood](https://doi.org/10.1525/mp.2012.29.4.387).
+
+**Critici appresi.** CMI-RM e SongEval sono candidati più pertinenti di un controllo del solo clipping: includono musicalità o coerenza. MuseCritic aggiunge una critica testuale e ricompense multidimensionali. Sono però valutatori di musica generata, non certificazioni del passaggio fra due brani. TuneJury nasce per musica strumentale: usarlo sul nostro pool vocale introduce un ulteriore scarto di dominio. Il numero di parametri della sola testa non rappresenta memoria e costo dei backbone congelati. Nessuno di questi nuovi modelli è stato eseguito in V9; sul PC è disponibile Intel UHD 620, non una GPU NVIDIA. [CMI-RewardBench](https://arxiv.org/html/2603.00610v2), [SongEval](https://arxiv.org/html/2505.10793v1), [MuseCritic](https://arxiv.org/abs/2608.11755), [TuneJury](https://arxiv.org/abs/2606.17006).
+
+**Auto-supervisione.** Ricostruire l'ordine di segmenti, riconoscere continuazioni naturali e apprendere da mix professionali permette di produrre segnali senza chiedere un nuovo voto all'utente a ogni ciclo. Ma una coppia mai suonata da un DJ non è automaticamente negativa; riconoscere il brano d'origine può diventare una scorciatoia. I falsi tagli e le permutazioni forniscono etichette per il compito costruito, non giudizi universali di gusto. Il lavoro SEN/DJnet propone precisamente l'ordine musicale come pretesto, senza dimostrare che l'accuratezza su quel compito misuri già la qualità estetica dei raccordi. [Paper](https://arxiv.org/html/1709.04384).
+
+## Implementazione proposta, in ordine
+
+1. **Fissare eventi e tempi.** Introdurre `TransitionPlan` con identità/hash dei brani, tempi nel sorgente e nel mix, inizio preparazione, ultimo A udibile, primo B udibile, passaggio principale e arrivo di B. Ricerca, protezione vocale, render e valutatori devono leggere lo stesso piano. Conservare il taglio breve fra i tipi possibili; aggiungere durata e intento senza imporre un blend.
+2. **Riprodurre una baseline di cue e verificare i dati.** Audit della versione Raveform e delle annotazioni prima dell'acquisizione audio; pilot CUE-DETR con conversioni temporali e batch limitati. Valutare sul compito originale prima di trasferirlo al pool. M-DJCUE è del 2019, non del 2024; i cue sono opportunità annotate, non preferenze fra tutte le coppie.
+3. **Aggiungere contesto di frase e voce.** Struttura funzionale, completamento di frase, pickup e dipendenze vocali, con alternative quando la metrica è ambigua. La sola ASR non certifica il confine del cantato. Tolleranze di secondi nei benchmark di struttura non valgono come precisione delle parole.
+4. **Scegliere anche di aspettare.** Confrontare `stay`, preparazione, esecuzione e rinvio a un'opportunità successiva. L'intento può essere mantenere il groove, proseguire la crescita, arrivare o creare un contrasto deliberato. Evidenza mancante resta sconosciuta; un calo RMS non viene etichettato come risoluzione.
+5. **Provare un critico indipendente sul raccordo.** Pilot iniziale CMI-RM/SongEval dopo verifica di pesi, licenze e risorse. Finestre che contengano davvero la giunzione, contesto su entrambi i lati e ordine A→B esplicito. Verificare sensibilità allo scambio dell'ordine, sostituzione dell'audio, identità del brano e guadagno. Un critico che risponde al testo del prompt anziché all'audio non può approvare il mix.
+6. **Chiudere il ciclo automatico su un benchmark separato, una volta disponibile un insieme pertinente.** Raveform annota punti e struttura, non preferenze sulla risoluzione A→B; CMI/SongEval non colmano da soli questo vuoto. Non abbiamo ancora un benchmark di qualità del raccordo pronto. Controlli tecnici, opportunità strutturali, compatibilità della sequenza e preferenze esterne sono compiti distinti. Confrontare beat-only, struttura e critico con ablation; separare i brani originali tra train e test anche se ricompaiono in diversi DJ mix. Conservare esempi ambigui, non trasformarli in negativi certi. Limitare l'ottimizzazione del premio e valutare con dati/critico indipendenti.
+
+La specifica leggibile da macchina contiene eventi, provider, controlli e condizioni di successo: [V9_EXPERIMENT_SPEC.json](../ricerca/v9/V9_EXPERIMENT_SPEC.json). È un piano, non una configurazione già consumata dalla CLI.
+
+## Quando potremo chiamarlo un miglioramento
+
+Servono risultati su dati esterni mantenuti separati: errore temporale e precisione/recall dei cue, violazioni di frase/voce, sensibilità all'ordine e preferenze disponibili sul raccordo. Per la policy autonoma vanno pubblicati rischio e copertura, numero di cambi accettati e confronto con “sempre aspetta” e “cambia sempre”. Astenersi su tutto non è un mixer riuscito. Una ricompensa più alta, da sola, non dimostra un miglioramento musicale.
+
+L'obiettivo operativo è non dipendere da nuovi giudizi dell'utente a ogni iterazione. Questo è compatibile con l'uso di annotazioni esperte già esistenti e critici addestrati su giudizi storici. Non implica la disponibilità attuale di un giudice infallibile della suspense. Nessuna prestazione SOTA è dimostrata da questa ricerca.
+
+## Provenienza e verifiche
+
+Otto filoni sono stati avviati in parallelo via un unico server OpenCode DeepSeek. Quattro agenti hanno completato i dossier; quattro sono stati interrotti dall'esaurimento della quota gratuita e le rispettive sintesi sono state completate dall'orchestratore, con provenienza separata. Sessioni archiviate e cancellate; server posseduto arrestato. La revisione finale è stata completata da un agente Luna 5.6 xhigh; le sue correzioni sono integrate, come richiesto nell'ultima indicazione.
+
+Il registro integrato contiene **112 voci di fonte e 96 URL canonici distinti**: comprende pubblicazioni, repository, manuali e duplicati tra filoni, non 112 paper letti integralmente. Le profondità di lettura e le correzioni sono dichiarate. Abbiamo usato materiali aperti, copie istituzionali e capitoli/estratti autorizzati.
+
+Corretto anche il launcher: recupera un checkpoint temporaneamente bloccato da Windows e riprende le sessioni esistenti senza duplicarle. **198 test e 3 subtest superati**, inclusi due test mirati al recupero. Questo verifica il software interessato, non la qualità musicale. Nessun nuovo audio, peso neurale o ascolto V9 viene presentato come risultato di miglioramento.
+
+[Indice degli otto dossier](../ricerca/v9/INDEX.md) · [Correzioni delle conclusioni](../ricerca/v9/REVIEW_CORRECTIONS.md) · [Note di lettura diretta](../ricerca/v9/ROOT_REVIEW_NOTES.md) · [Inventario e hash](../runs/swarm_v9_research/bundle_inventory.json).

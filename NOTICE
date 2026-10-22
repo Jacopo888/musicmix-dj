@@ -1,0 +1,15 @@
+MusicMix DJ
+Copyright 2026 The MusicMix DJ authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes TIV.lib (src/musicmix/_vendor/tivlib/),
+Copyright (c) 2019 Antonio Ramires, licensed under the MIT License
+(see src/musicmix/_vendor/tivlib/LICENSE).
+
+At run time the software can download and call third-party models and
+programs (Demucs, faster-whisper, Silero VAD, spaCy, Beat This!, All-In-One,
+madmom, essentia, CUE-DETR, Audiobox Aesthetics, MuQ, SongEval, MERT,
+MusicGen, CLAP, Rubber Band, FFmpeg). They are not distributed with this
+product and remain under their own licences, some of which are
+non-commercial or copyleft; see THIRD_PARTY.md.

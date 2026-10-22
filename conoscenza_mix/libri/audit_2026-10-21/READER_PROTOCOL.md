@@ -1,0 +1,11 @@
+# Protocollo lettura integrale MusicMix, ripresa21 ottobre
+
+Leggere tutte le pagine assegnate, non abstract/ricerca parole chiave. Testi completi privati in <private book copies>/books/<Autore>/pages/NNNN.txt (fisiche1-based) e pages.jsonl. EPUB Brewster perchunk/spine, mai pagine inventate. I PDF originali verificati SHA sono nella cartella sorella libri (ripristino completato e hash riconfermati). Leggere AGENTS.md e conoscenza_mix/INDEX.md.
+
+1. Leggere testo completo di ogni pagina in batch5–10 senza output troncato. Indici, note, bibliografie e blank compresi; estratto non significa letto.
+2. Vedere in render scansioni/vuoti sospetti/notazione/figure/tabelle indispensabili. Poppler: <local path> -f N -l N -singlefile -scale-to1600 -png PDF outputprefix. Non usare il vecchio PyMuPDF2.0; runtime privato corretto1.26.6 disponibile. I render privati esistenti possono essere riusati.
+3. Scrivere solo readers/<taskid>.jsonl e .md. Ledger record perpagina: book_id,unit_id numerico fisico,status text_read/visual_read/blank_verified/unreadable,topic parafrasato specifico,usefulness,candidate_ids,needs_root_review. Nessun topic generico ripetuto da script. Niente fulltext in Git.
+4. Report italiano <=2000parole, range realmente letto/lacune, candidati concreti funzione→gap→proposta→test. Distingui esperimento/N, teoria, analisi di casi, pratica e nostra ipotesi. Fonte non valida una soglia. Non equiparare energia=volume, silenzio=finefrase, chorus=risoluzione, sorpresa=errore. Finecon shortlist massimo4PAGINE COMPLETE da rileggere dalroot, fisica+stampata verificata.
+5. Focus automix offline rap/trap; non rendere obbligatori crowd sensor/hardware/scratch/4deck. Non forzare proposte da storia o indici. Niente produzione/training/download/commit/push/subagenti.
+
+Snapshot nuovo6f03b33: leggere il codice attuale per non duplicare funzioni. Novita gia presenti: dj_form profilo/layer/forma, setrunner v2books, phrase onsetsda stem, boundary differenti, porting ufficialeOhriner, criticv3 DSP/dose-response. Le vecchie note contengono proposte gia implementate: verificare. Root rivedra delta. Il codice contiene ipotesi non ancora dimostrate dai libri: esplicitarle. La continuazioneA e solo confronto pairwise, mai rating1–10. Psicologia diagnostica, defaultselezione DJcraft.
